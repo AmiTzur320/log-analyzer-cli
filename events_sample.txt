@@ -1,0 +1,68 @@
+# TELEMETRY events - count iterations with time patterns
+TELEMETRY --count --pattern ^Iteration time:\s\d+\.\d+\ssec$
+
+# DEVICE events - count all WARNING level device events
+DEVICE --count --level WARNING
+
+# GNMI events - show all ERROR level GNMI events
+GNMI --level ERROR
+
+# Additional specific patterns for more detailed analysis
+TELEMETRY --pattern ^Iteration time:\s\d+\.\d+\ssec$ --level INFO
+
+# Device temperature warnings - matches "high temperature" and "temperature sensor"
+DEVICE --pattern ^detected high temperature of device\s[a-f0-9\-]{36}:\s\d+C$ --level WARNING
+
+# GNMI unresponsive telemetry 
+GNMI --pattern ^unresponsive telemetry at endpoint\s.+$ --level ERROR
+
+# Memory and disk warnings - matches memory and disk space issues
+DEVICE --pattern ^disk space low:\s\d+%\sfull$ --level WARNING
+
+# GNMI connection timeout
+GNMI --pattern ^connection timeout at endpoint\s.+$ --level ERROR
+
+# GNMI authentication failed
+GNMI --pattern ^authentication failed for endpoint\s.+$ --level ERROR
+
+# GNMI data corruption
+GNMI --pattern ^data corruption detected in telemetry stream$ --level ERROR
+
+# GNMI endpoint not responding
+GNMI --pattern ^endpoint not responding:\s.+$ --level ERROR
+
+# GNMI SSL certificate expired
+GNMI --pattern ^SSL certificate expired for endpoint\s.+$ --level ERROR
+
+# GNMI malformed response
+GNMI --pattern ^malformed response from endpoint\s.+$ --level ERROR
+
+# GNMI network unreachable
+GNMI --pattern ^network unreachable:\s.+$ --level ERROR
+
+# GNMI rate limit exceeded
+GNMI --pattern ^rate limit exceeded for endpoint\s.+$ --level ERROR
+
+# Device memory warning
+DEVICE --pattern ^low memory warning:\s\d+%\susage$ --level WARNING
+
+# Device network latency
+DEVICE --pattern ^network latency high:\s\d+ms$ --level WARNING
+
+# Device CPU usage
+DEVICE --pattern ^CPU usage elevated:\s\d+%$ --level WARNING
+
+# Device fan speed
+DEVICE --pattern ^fan speed below threshold:\s\d+\sRPM$ --level WARNING
+
+# Device power consumption
+DEVICE --pattern ^power consumption above normal:\s\d+W$ --level WARNING
+
+# Device temperature sensor
+DEVICE --pattern ^temperature sensor reading invalid$ --level WARNING
+
+# Device backup process
+DEVICE --pattern ^backup process taking longer than expected$ --level WARNING
+
+# GNMI retry attempts
+GNMI --pattern ^retry attempt \d+/\d+ for endpoint detection$ --level WARNING

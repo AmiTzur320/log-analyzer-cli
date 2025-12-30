@@ -1,0 +1,61 @@
+Event: TELEMETRY pattern [^Iteration time:\s\d+\.\d+\ssec$] count — matches: 10 entries
+Event: DEVICE level [WARNING] count — matches: 9 entries
+Event: GNMI level [ERROR] — matching log lines:
+2025-06-01T14:10:00 ERROR GNMI unresponsive telemetry at endpoint http://192.168.1.10:9001/csv/xcset/low_freq_debug
+2025-06-01T14:25:10 ERROR GNMI connection timeout at endpoint http://192.168.1.15:9002
+2025-06-01T14:55:45 ERROR GNMI authentication failed for endpoint http://192.168.1.20:9003
+2025-06-01T15:10:22 ERROR GNMI data corruption detected in telemetry stream
+2025-06-01T15:25:17 ERROR GNMI endpoint not responding: http://192.168.1.25:9004
+2025-06-01T15:40:12 ERROR GNMI SSL certificate expired for endpoint https://192.168.1.30:9005
+2025-06-01T15:55:47 ERROR GNMI malformed response from endpoint http://192.168.1.35:9006
+2025-06-01T16:10:56 ERROR GNMI network unreachable: http://192.168.1.40:9007
+2025-06-01T16:25:35 ERROR GNMI rate limit exceeded for endpoint http://192.168.1.45:9008
+Event: TELEMETRY level [INFO] pattern [^Iteration time:\s\d+\.\d+\ssec$] — matching log lines:
+2025-06-01T14:03:05 INFO TELEMETRY Iteration time: 1793.845 sec
+2025-06-01T14:15:30 INFO TELEMETRY Iteration time: 120.5 sec
+2025-06-01T14:30:00 INFO TELEMETRY Iteration time: 95.2 sec
+2025-06-01T14:45:12 INFO TELEMETRY Iteration time: 234.7 sec
+2025-06-01T15:00:15 INFO TELEMETRY Iteration time: 156.3 sec
+2025-06-01T15:15:08 INFO TELEMETRY Iteration time: 89.1 sec
+2025-06-01T15:30:55 INFO TELEMETRY Iteration time: 312.8 sec
+2025-06-01T15:45:38 INFO TELEMETRY Iteration time: 178.9 sec
+2025-06-01T16:00:33 INFO TELEMETRY Iteration time: 267.4 sec
+2025-06-01T16:15:42 INFO TELEMETRY Iteration time: 143.6 sec
+Event: DEVICE level [WARNING] pattern [^detected high temperature of device\s[a-f0-9\-]{36}:\s\d+C$] — matching log lines:
+2025-06-01T14:05:22 WARNING DEVICE detected high temperature of device c95fe73e-14db-4ef4-909d-0c1db67c41ee: 40C
+Event: GNMI level [ERROR] pattern [^unresponsive telemetry at endpoint\s.+$] — matching log lines:
+2025-06-01T14:10:00 ERROR GNMI unresponsive telemetry at endpoint http://192.168.1.10:9001/csv/xcset/low_freq_debug
+Event: DEVICE level [WARNING] pattern [^disk space low:\s\d+%\sfull$] — matching log lines:
+2025-06-01T14:50:28 WARNING DEVICE disk space low: 92% full
+Event: GNMI level [ERROR] pattern [^connection timeout at endpoint\s.+$] — matching log lines:
+2025-06-01T14:25:10 ERROR GNMI connection timeout at endpoint http://192.168.1.15:9002
+Event: GNMI level [ERROR] pattern [^authentication failed for endpoint\s.+$] — matching log lines:
+2025-06-01T14:55:45 ERROR GNMI authentication failed for endpoint http://192.168.1.20:9003
+Event: GNMI level [ERROR] pattern [^data corruption detected in telemetry stream$] — matching log lines:
+2025-06-01T15:10:22 ERROR GNMI data corruption detected in telemetry stream
+Event: GNMI level [ERROR] pattern [^endpoint not responding:\s.+$] — matching log lines:
+2025-06-01T15:25:17 ERROR GNMI endpoint not responding: http://192.168.1.25:9004
+Event: GNMI level [ERROR] pattern [^SSL certificate expired for endpoint\s.+$] — matching log lines:
+2025-06-01T15:40:12 ERROR GNMI SSL certificate expired for endpoint https://192.168.1.30:9005
+Event: GNMI level [ERROR] pattern [^malformed response from endpoint\s.+$] — matching log lines:
+2025-06-01T15:55:47 ERROR GNMI malformed response from endpoint http://192.168.1.35:9006
+Event: GNMI level [ERROR] pattern [^network unreachable:\s.+$] — matching log lines:
+2025-06-01T16:10:56 ERROR GNMI network unreachable: http://192.168.1.40:9007
+Event: GNMI level [ERROR] pattern [^rate limit exceeded for endpoint\s.+$] — matching log lines:
+2025-06-01T16:25:35 ERROR GNMI rate limit exceeded for endpoint http://192.168.1.45:9008
+Event: DEVICE level [WARNING] pattern [^low memory warning:\s\d+%\susage$] — matching log lines:
+2025-06-01T14:20:45 WARNING DEVICE low memory warning: 85% usage
+Event: DEVICE level [WARNING] pattern [^network latency high:\s\d+ms$] — matching log lines:
+2025-06-01T15:05:33 WARNING DEVICE network latency high: 150ms
+Event: DEVICE level [WARNING] pattern [^CPU usage elevated:\s\d+%$] — matching log lines:
+2025-06-01T15:20:41 WARNING DEVICE CPU usage elevated: 78%
+Event: DEVICE level [WARNING] pattern [^fan speed below threshold:\s\d+\sRPM$] — matching log lines:
+2025-06-01T15:35:29 WARNING DEVICE fan speed below threshold: 1200 RPM
+Event: DEVICE level [WARNING] pattern [^power consumption above normal:\s\d+W$] — matching log lines:
+2025-06-01T15:50:24 WARNING DEVICE power consumption above normal: 450W
+Event: DEVICE level [WARNING] pattern [^temperature sensor reading invalid$] — matching log lines:
+2025-06-01T16:05:19 WARNING DEVICE temperature sensor reading invalid
+Event: DEVICE level [WARNING] pattern [^backup process taking longer than expected$] — matching log lines:
+2025-06-01T16:20:18 WARNING DEVICE backup process taking longer than expected
+Event: GNMI level [WARNING] pattern [^retry attempt \d+/\d+ for endpoint detection$] — matching log lines:
+2025-06-01T14:40:30 WARNING GNMI retry attempt 3/5 for endpoint detection
