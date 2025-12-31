@@ -1,6 +1,6 @@
-Markdown# LogAnalyzer 🔍
+## LogAnalyzer 🔍
 
-A fast, configurable **Python CLI** for extracting and reporting events from structured log files — with support for **filters**, **regex**, **time ranges**, and **.gz** logs.
+A fast, configurable **Python CLI** for extracting and reporting events from structured log files - with support for **filters**, **regex**, **time ranges**, and **.gz** logs.
 
 ---
 
@@ -46,20 +46,64 @@ source venv/bin/activate
 
 # Install dependencies
 pip install -r requirements.txt
-🚀 UsageCommand-line ArgumentsArgumentDescription--log-dir <path>Required. Path to directory containing logs.--events-file <path>Required. Path to filter configuration file.--from <timestamp>Optional. Start time (Format: YYYY-MM-DDTHH:MM:SS).--to <timestamp>Optional. End time (Format: YYYY-MM-DDTHH:MM:SS).Running the ScriptBashpython LogAnalyzer.py \
+```
+## 🚀 Usage (Command-line)
+
+### Arguments
+
+| Argument | Description |
+|---|---|
+| `--log-dir <path>` | **Required.** Path to directory containing logs. |
+| `--events-file <path>` | **Required.** Path to filter configuration file. |
+| `--from <timestamp>` | Optional. Start time (Format: `YYYY-MM-DDTHH:MM:SS`). |
+| `--to <timestamp>` | Optional. End time (Format: `YYYY-MM-DDTHH:MM:SS`). |
+
+### Running the Script
+
+```bash
+python LogAnalyzer.py \
   --log-dir logs \
   --events-file events_sample.txt \
   --from 2025-06-01T10:00:00 \
   --to 2025-06-01T15:00:00
-⚙️ Filter Configuration (events.txt)Each line in the configuration file describes one filter rule.Examples:PlaintextTELEMETRY --count --pattern ^Iteration time:\s\d+\.\d+\ssec$
+```
+## ⚙️ Filter Configuration (events.txt)
+
+Each line in the configuration file describes one filter rule.
+
+# Examples
+```txt
+TELEMETRY --count --pattern ^Iteration time:\s\d+\.\d+\ssec$
 DEVICE --count --level WARNING
 GNMI --level ERROR
-Supported Flags--count: Output only the number of matches.--level <LEVEL>: Match lines with a specific level (e.g., INFO, WARNING, ERROR).--pattern <REGEX>: Regex match on the log message.📋 Log Format AssumptionThe tool expects the following structured log format:<TIMESTAMP> <LEVEL> <EVENT> <MESSAGE...>Example:2025-06-01T14:03:05 INFO TELEMETRY Iteration time: 1793.845 sec🏗️ Project StructurePlaintext.
+```
+## Supported Flags
+
+--count: Output only the number of matches.
+
+--level <LEVEL>: Match lines with a specific level (e.g., INFO, WARNING, ERROR).
+
+--pattern <REGEX>: Regex match on the log message.
+
+## 📋 Log Format Assumption
+
+The tool expects the following structured log format:
+```txt
+<TIMESTAMP> <LEVEL> <EVENT> <MESSAGE...>
+```
+Example
+```txt
+2025-06-01T14:03:05 INFO TELEMETRY Iteration time: 1793.845 sec
+```
+## 🏗️ Project Structure
+```txt
+.
 ├── LogAnalyzer.py          # Main CLI entry point
 ├── helper.py               # Parsing + filtering helpers
 ├── test_log_analyzer.py    # Unit tests
 ├── events_sample.txt       # Example filter file
 ├── logs/                   # Example log directory
 └── requirements.txt        # Project dependencies
-🧪 TestingThe project includes comprehensive tests covering edge cases like malformed lines, missing fields, and time range boundaries.Bashpytest
-Developed by Ami Tzur - Computer Science & Economics Student, HUJI
+```
+## 🧪 TestingThe project includes comprehensive tests covering edge cases like malformed lines, missing fields, and time range boundaries.Bashpytest
+Developed by Amit Tzur 
