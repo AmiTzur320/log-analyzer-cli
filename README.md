@@ -105,5 +105,5 @@ Example
 ├── logs/                   # Example log directory
 └── requirements.txt        # Project dependencies
 ```
-## 🧪 TestingThe project includes comprehensive tests covering edge cases like malformed lines, missing fields, and time range boundaries.Bashpytest
+
 Developed by Amit Tzur 
